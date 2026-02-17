@@ -1,4 +1,4 @@
-import app from "./index.js";
+import app from "./app.js";
 import Config from "./config/config.js";
 
 const PORT = Config.port;
