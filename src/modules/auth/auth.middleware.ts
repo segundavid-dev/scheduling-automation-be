@@ -24,7 +24,10 @@ export function authorizeRequest(
   }
 
   try {
-    const decoded = jwt.verify(token, secret);
+    const decoded = jwt.verify(token, secret) as { userId: string };
+
+    // attach the decoded to the request
+    req.user = decoded;
     next();
   } catch {
     return res.status(401).json({ message: "Invalid token" });
